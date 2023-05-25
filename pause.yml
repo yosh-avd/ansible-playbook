@@ -1,0 +1,5 @@
+---
+- name: Pause playbook for a minute
+  pause:
+    minutes: 1
+...

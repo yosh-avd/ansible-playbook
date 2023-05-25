@@ -1,0 +1,15 @@
+---
+- name: To work on multiple child modules
+  hosts: all
+  tasks:
+    - name: Configure apache
+      include: "{{item}}"
+      with_items:
+        - install.yml
+        - editindex.yml
+        - apacherestart.yml
+        - pause.yml  
+        - checkresponse.yml
+
+
+...  

@@ -1,0 +1,17 @@
+---
+ - name: Implemt block and rescue
+   hosts: all
+   tasks:
+     - block:
+        - name: Install apache2 using apt
+          apt:
+            name: apache2
+            state: present
+            update_cache: yes
+       rescue:
+         - name: Install apache2 on rhel7
+           yum:
+             name: httpd
+             state: present
+             update_cache: yes
+...

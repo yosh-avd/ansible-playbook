@@ -1,0 +1,10 @@
+---
+- name: Install firewall sw using host scope variables
+  hosts: webservers
+  tasks:
+    - name: Install firewall
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...

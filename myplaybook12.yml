@@ -1,0 +1,22 @@
+---
+- name: Install apache and use handlers
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: Edit index.html
+      copy:
+        content: "Welcome to ADVD"
+        dest: /var/www/html/index.html
+      notify: Restart apache2
+  handlers:
+     - name: Restart apache2
+       service:
+         name: apache2
+         state: restarted
+...

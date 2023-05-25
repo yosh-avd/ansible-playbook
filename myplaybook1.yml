@@ -1,0 +1,14 @@
+---
+- name: Create User
+  hosts: all
+  tasks:
+    - name: This is user creation module
+      user:
+        name: Anil
+        password: Anil123
+        comment: "This is new admin"
+        uid: 1015
+        home: /home/Anil
+        shell: /bin/bash
+        group: 1001
+...

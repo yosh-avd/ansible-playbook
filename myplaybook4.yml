@@ -1,0 +1,10 @@
+---
+- name: Implement Global scope variables
+  hosts: all
+  tasks:
+    - name: Implement global scope variables to install packages
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...

@@ -1,0 +1,20 @@
+---
+- name: Implementing tags
+  hosts: all
+  tasks:
+    - name: Install firewalld
+      apt:
+        name: firewalld
+        state: present
+        update_cache: yes
+      tags: firewall_installation
+    - name: Create user
+      user:
+        name: kiran
+        password: kiran123
+      tags: user_creation
+    - name: Copy files
+      copy:
+        src: /etc/passwd
+        dest: /tmp
+...

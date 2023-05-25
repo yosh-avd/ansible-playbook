@@ -1,0 +1,17 @@
+---
+- name: Install apache based on OSname
+  hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: tree
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+    - name: Install apache2 using yum
+      yum:
+        name: tree
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "RedHat"
+...
